@@ -13,9 +13,7 @@
 		39990FAA2BBE5CD7006EC476 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39990FA92BBE5CD7006EC476 /* Preview Assets.xcassets */; };
 		39990FB12BBE5D48006EC476 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB02BBE5D48006EC476 /* Product.swift */; };
 		39990FB32BBE5D61006EC476 /* ProductSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */; };
-		39990FB52BBE5D81006EC476 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB42BBE5D81006EC476 /* Persistence.swift */; };
 		39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */; };
-		39990FBA2BBE6238006EC476 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB82BBE6238006EC476 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +24,7 @@
 		39990FA92BBE5CD7006EC476 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39990FB02BBE5D48006EC476 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchManager.swift; sourceTree = "<group>"; };
-		39990FB42BBE5D81006EC476 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeScanner.swift; sourceTree = "<group>"; };
-		39990FB92BBE6238006EC476 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +62,6 @@
 				39990FA42BBE5CD4006EC476 /* ContentView.swift */,
 				39990FB02BBE5D48006EC476 /* Product.swift */,
 				39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */,
-				39990FB42BBE5D81006EC476 /* Persistence.swift */,
-				39990FB82BBE6238006EC476 /* Model.xcdatamodeld */,
 				39990FA62BBE5CD7006EC476 /* Assets.xcassets */,
 				39990FA82BBE5CD7006EC476 /* Preview Content */,
 			);
@@ -155,9 +149,7 @@
 				39990FA52BBE5CD4006EC476 /* ContentView.swift in Sources */,
 				39990FA32BBE5CD4006EC476 /* ProductScannerApp.swift in Sources */,
 				39990FB12BBE5D48006EC476 /* Product.swift in Sources */,
-				39990FBA2BBE6238006EC476 /* Model.xcdatamodeld in Sources */,
 				39990FB32BBE5D61006EC476 /* ProductSearchManager.swift in Sources */,
-				39990FB52BBE5D81006EC476 /* Persistence.swift in Sources */,
 				39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,19 +358,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		39990FB82BBE6238006EC476 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				39990FB92BBE6238006EC476 /* Model.xcdatamodel */,
-			);
-			currentVersion = 39990FB92BBE6238006EC476 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 39990F972BBE5CD4006EC476 /* Project object */;
 }

@@ -12,7 +12,7 @@ import AVFoundation
 
 struct BarCodeScanner : UIViewControllerRepresentable {
     
-    @Binding var isbn: String?
+    @Binding var upc: String?
     @Binding var foundProducts: Products?
     
     @Environment(\.presentationMode) private var presentationMode
@@ -93,7 +93,7 @@ struct BarCodeScanner : UIViewControllerRepresentable {
         
         func found(code: String) {
             print(code)
-            parent.isbn = code
+            parent.upc = code
             
             ProductSearchManager().getProductInfo(upc: code) { product in
                 DispatchQueue.main.async {

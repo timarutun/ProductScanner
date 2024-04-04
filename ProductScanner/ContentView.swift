@@ -21,7 +21,6 @@ struct ContentView: View {
                     Text("\(foundProducts?.title ?? "Title")")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .padding()
                 }
                 Section(header: Text("Important Badges")){
                     Text(foundProducts?.importantBadges.joined(separator:", ") ?? "Badges")
@@ -43,9 +42,10 @@ struct ContentView: View {
             }) {
                 Image(systemName: "barcode")
             }.sheet(isPresented: $isPresented) {
-                BarCodeScanner(isbn: $upc, foundProducts: $foundProducts)
+                BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
             }
             )
+
         }
     }
     
