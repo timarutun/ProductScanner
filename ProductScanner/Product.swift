@@ -19,7 +19,7 @@ struct Nutrition: Codable {
     let nutrients: [Nutrient]
     let caloricBreakdown: CaloricBreakdown?
     let calories: Double?
-    let fat, protein, carbs: String?
+    var fat, protein, carbs: String?
 }
 
 // MARK: - Nutrient
@@ -34,4 +34,7 @@ struct Nutrient: Codable {
 struct CaloricBreakdown: Codable {
     let percentProtein, percentFat, percentCarbs: Double?
 }
+
+
+
 
