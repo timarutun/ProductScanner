@@ -10,33 +10,15 @@ import Charts
 
 struct ContentView: View {
     
+    @State private var showingProductPhoto = false
+    
     @State private var isPresented = false
     @State private var upc: String?
     @State private var foundProducts: Products?
     
-    @State private var breackdown: [DataForChart] = [
-        .init(name: "Fat", value: 0.5),
-        .init(name: "Protein", value: 0.2),
-        .init(name: "Carbs", value: 0.1)
-    ]
-    
     var body: some View {
         NavigationView{
-            VStack {
                 Form{
-                    Section {
-                        AsyncImage(url: URL(string: foundProducts?.image ?? "")) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Rectangle())
-                        } placeholder: {
-                            Rectangle()
-                                .foregroundStyle(.background)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        
-                    }
                     Section(header: Text("Product name")){
                         HStack {
                             Text("\(foundProducts?.title ?? "Title")")
@@ -45,28 +27,44 @@ struct ContentView: View {
                             
                         }
                     }
+                    Section {
+                        Toggle("Show Product Photo", isOn: $showingProductPhoto.animation())
+
+                                        if showingProductPhoto {
+                                            AsyncImage(url: URL(string: foundProducts?.image ?? "")) { image in
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .clipShape(Rectangle())
+                                            } placeholder: {
+                                                Rectangle()
+                                                    .foregroundStyle(.background)
+                                            }
+                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        }
+                    }
                     Section(header: Text("Important Badges")){
                         Text(foundProducts?.importantBadges.joined(separator:", ") ?? "Badges")
                             .font(.callout)
                     }
                     Section {
-                        Chart(breackdown) { breackdown in
+                        let breackdown: [DataForChart] = [
+                            .init(name: "Fat", value: foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 30),
+                            .init(name: "Protein", value: foundProducts?.nutrition?.caloricBreakdown?.percentProtein ?? 30),
+                            .init(name: "Carbs", value: foundProducts?.nutrition?.caloricBreakdown?.percentCarbs ?? 30)
+                        ]
+                         Chart(breackdown) { breackdown in
                             SectorMark(
-                                angle: .value(Text(verbatim: breackdown.id), breackdown.value)
+                                angle: .value(Text(verbatim: breackdown.id), breackdown.value), innerRadius: .ratio(0.5), angularInset: 5
                             )
-                            .foregroundStyle(
-                                            by: .value(
-                                                Text(verbatim: breackdown.name),
-                                                breackdown.name)
-                            )
+                            .foregroundStyle(by: .value(Text(verbatim: breackdown.name), breackdown.name))
                         }
-                        .frame(width: 250, height: 250, alignment: .center)
+                         .frame(height: 300)
                     }
-                    
                     Section(header: Text("Nutrients")){
+                        Text("Calories: \(String(foundProducts?.nutrition?.calories ?? 0))").fontWeight(.bold)
                         Text("Fat: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 0))")
                         Text("Protein: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentProtein ?? 0))")
-                        Text("Calories: \(String(foundProducts?.nutrition?.calories ?? 0))")
                         Text("Carbs: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentCarbs ?? 0))")
                             .font(.callout)
                     }
@@ -81,8 +79,7 @@ struct ContentView: View {
                     BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
                 }
                 )
-                
-            }
+
         }
         
     }
