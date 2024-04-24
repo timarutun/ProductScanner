@@ -47,26 +47,31 @@ struct ContentView: View {
                         Text(foundProducts?.importantBadges.joined(separator:", ") ?? "Badges")
                             .font(.callout)
                     }
-                    Section {
+                    Section(header: Text("Nutrients")){
                         let breackdown: [DataForChart] = [
-                            .init(name: "Fat", value: foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 30),
-                            .init(name: "Protein", value: foundProducts?.nutrition?.caloricBreakdown?.percentProtein ?? 30),
-                            .init(name: "Carbs", value: foundProducts?.nutrition?.caloricBreakdown?.percentCarbs ?? 30)
+                            .init(name: "Fat", value: foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 30, color: .orange),
+                            .init(name: "Protein", value: foundProducts?.nutrition?.caloricBreakdown?.percentProtein ?? 30, color: .blue),
+                            .init(name: "Carbs", value: foundProducts?.nutrition?.caloricBreakdown?.percentCarbs ?? 30, color: .purple)
                         ]
+                        
                          Chart(breackdown) { breackdown in
                             SectorMark(
                                 angle: .value(Text(verbatim: breackdown.id), breackdown.value), innerRadius: .ratio(0.5), angularInset: 5
                             )
-                            .foregroundStyle(by: .value(Text(verbatim: breackdown.name), breackdown.name))
+                            .foregroundStyle(breackdown.color)
+                             
                         }
                          .frame(height: 300)
-                    }
-                    Section(header: Text("Nutrients")){
-                        Text("Calories: \(String(foundProducts?.nutrition?.calories ?? 0))").fontWeight(.bold)
+                            
                         Text("Fat: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 0))")
+                            .foregroundStyle(.orange)
                         Text("Protein: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentProtein ?? 0))")
+                            .foregroundStyle(.blue)
                         Text("Carbs: \(String(foundProducts?.nutrition?.caloricBreakdown?.percentCarbs ?? 0))")
                             .font(.callout)
+                            .foregroundStyle(.purple)
+                        Text("Calories: \(String(foundProducts?.nutrition?.calories ?? 0))")
+                            .fontWeight(.bold)
                     }
                 }
                 .navigationBarTitle("Poduct Info")
@@ -89,6 +94,7 @@ struct DataForChart: Identifiable {
     var id = UUID().uuidString
     let name: String
     let value: Double
+    let color: Color
 }
 
 
