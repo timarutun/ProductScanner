@@ -99,9 +99,8 @@ struct ContentView: View {
                                                 }
                                             }
                     }
-                    
                 }
-                .navigationBarTitle("NutriScope")
+                .navigationBarTitle("Poduct Info")
                 .navigationBarItems(trailing:
                                         Button(action: {
                     self.isPresented.toggle()
