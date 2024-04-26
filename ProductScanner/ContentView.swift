@@ -28,7 +28,17 @@ struct ContentView: View {
                         }
                     }
                     Section {
-                        Toggle("Show Product Photo", isOn: $showingProductPhoto.animation())
+                       
+                        Button(action: {
+                                showingProductPhoto.toggle()
+                            }) {
+                                HStack {
+                                    Text(showingProductPhoto ? "Hide Product Photo" : "Show Product Photo")
+                                    Spacer()
+                                    Image(systemName: (showingProductPhoto ? "chevron.down" : "chevron.up"))
+                                }
+                                .foregroundStyle(.foreground)
+                            }
 
                                         if showingProductPhoto {
                                             AsyncImage(url: URL(string: foundProducts?.image ?? "")) { image in
@@ -43,10 +53,7 @@ struct ContentView: View {
                                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         }
                     }
-                    Section(header: Text("Important Badges")){
-                        Text(foundProducts?.importantBadges.joined(separator:", ") ?? "Badges")
-                            .font(.callout)
-                    }
+                    
                     Section(header: Text("Nutrients")){
                         let breackdown: [DataForChart] = [
                             .init(name: "Fat", value: foundProducts?.nutrition?.caloricBreakdown?.percentFat ?? 30, color: .orange),
@@ -73,8 +80,28 @@ struct ContentView: View {
                         Text("Calories: \(String(foundProducts?.nutrition?.calories ?? 0))")
                             .fontWeight(.bold)
                     }
+                    
+                    Section(header: Text("Ingredients")){
+                        if foundProducts == nil {
+                                                Text("Loading...")
+                                            } else {
+                                                ForEach(foundProducts?.ingredients ?? [], id: \.name) { ingredient in
+                                                    VStack(alignment: .leading) {
+                                                        Text(ingredient.name)
+                                                        if let safetyLevel = ingredient.safetyLevel {
+                                                            Text("Safety Level: \(safetyLevel)")
+                                                                .foregroundColor(safetyLevel == "high" ? .green : .red)
+                                                        } else {
+                                                            Text("Safety Level: Unknown")
+                                                                .foregroundColor(.gray)
+                                                        }
+                                                    }
+                                                }
+                                            }
+                    }
+                    
                 }
-                .navigationBarTitle("Poduct Info")
+                .navigationBarTitle("NutriScope")
                 .navigationBarItems(trailing:
                                         Button(action: {
                     self.isPresented.toggle()

@@ -36,6 +36,7 @@ class ProductSearchManager {
                 do{
                     let bookData = try JSONDecoder().decode(Products.self, from: jsonData)
                     completion(bookData)
+                    print(bookData)
            }catch{
                print(error)
            }

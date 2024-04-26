@@ -12,6 +12,8 @@ struct Products: Decodable {
     let importantBadges: [String]
     let nutrition: Nutrition?
     let image: String?
+    let ingredients: [Ingredient]
+
 }
 
 // MARK: - Nutrition
@@ -35,6 +37,16 @@ struct CaloricBreakdown: Codable {
     let percentProtein, percentFat, percentCarbs: Double?
 }
 
-
-
+// MARK: - Ingredient
+struct Ingredient: Codable {
+    let name: String
+    let safetyLevel: String?
+    let description: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case safetyLevel = "safety_level"
+        case description
+    }
+}
 

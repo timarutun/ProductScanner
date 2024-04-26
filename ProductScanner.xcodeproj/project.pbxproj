@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		398054572BC2647B005D7A5D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		39990F9F2BBE5CD4006EC476 /* ProductScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39990F9F2BBE5CD4006EC476 /* NutriScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScannerApp.swift; sourceTree = "<group>"; };
 		39990FA42BBE5CD4006EC476 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		39990FA62BBE5CD7006EC476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		39990FA02BBE5CD4006EC476 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39990F9F2BBE5CD4006EC476 /* ProductScanner.app */,
+				39990F9F2BBE5CD4006EC476 /* NutriScope.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 			);
 			name = ProductScanner;
 			productName = ProductScanner;
-			productReference = 39990F9F2BBE5CD4006EC476 /* ProductScanner.app */;
+			productReference = 39990F9F2BBE5CD4006EC476 /* NutriScope.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,6 +292,7 @@
 				DEVELOPMENT_TEAM = 2578GW4Y4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriScope;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan barcodes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -306,7 +307,8 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TimurArutiunian.ProductScanner;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = NutriScope;
+				PRODUCT_NAME = NutriScope;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,6 +327,7 @@
 				DEVELOPMENT_TEAM = 2578GW4Y4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriScope;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan barcodes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -339,7 +342,8 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TimurArutiunian.ProductScanner;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = NutriScope;
+				PRODUCT_NAME = NutriScope;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
