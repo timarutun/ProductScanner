@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+// Добавь ТипКит потом
 
 struct ContentView: View {
     @State private var showingProductPhoto = false
@@ -20,10 +21,16 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     if let product = foundProducts {
                         HStack {
-                            Text(product.title ?? "Title")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding()
+                            VStack(alignment: .leading) {
+                                Text(product.title ?? "Title")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                Text("Calories: \(String(format: "%.1f", product.nutrition?.calories ?? 0))")
+                                    .font(.footnote)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.gray)
+                            }
+                            .padding()
                             
                             Spacer()
                             
@@ -43,6 +50,8 @@ struct ContentView: View {
                             }
                         }
                         
+                        Divider()
+                        
                         Section(header: Text("Nutrients").font(.footnote).foregroundStyle(.gray)) {
                             if let nutrition = product.nutrition {
                                 let breakdown: [DataForChart] = [
@@ -59,15 +68,15 @@ struct ContentView: View {
                                 }
                                 .frame(height: 300)
                                 
-                                Text("Fat: \(nutrition.caloricBreakdown?.percentFat ?? 0)")
+                                Text("Fat: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentFat ?? 0))%")
                                     .foregroundStyle(.orange)
-                                Text("Protein: \(nutrition.caloricBreakdown?.percentProtein ?? 0)")
+
+                                Text("Protein: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentProtein ?? 0))%")
                                     .foregroundStyle(.blue)
-                                Text("Carbs: \(nutrition.caloricBreakdown?.percentCarbs ?? 0)")
+
+                                Text("Carbs: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentCarbs ?? 0))%")
                                     .font(.callout)
                                     .foregroundStyle(.purple)
-                                Text("Calories: \(nutrition.calories ?? 0)")
-                                    .fontWeight(.bold)
                             } else {
                                 Text("Nutrition information not available")
                             }
@@ -114,8 +123,9 @@ struct ContentView: View {
                 }
                 
             }
+            .ignoresSafeArea()
             .padding()
-            .navigationBarTitle("Product Info")
+            .navigationBarTitle("NutriScope")
             .navigationBarItems(trailing:
                 Button(action: {
                     self.isPresented.toggle()
@@ -129,9 +139,9 @@ struct ContentView: View {
                 .sheet(isPresented: $isPresented) {
                     BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
                 }
+                                
             )
         }
-        .ignoresSafeArea()
     }
 }
 
