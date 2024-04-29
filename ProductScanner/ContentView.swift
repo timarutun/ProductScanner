@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var isPresented = false
     @State private var upc: String?
     @State private var foundProducts: Products?
+
+
     
     var body: some View {
         NavigationView {
@@ -86,7 +88,7 @@ struct ContentView: View {
                         
                         Divider()
                         
-                        Section(header: Text("Ingredients").font(.footnote).foregroundStyle(.gray)) {
+                        Section(header: Text("Ingredients").font(.footnote).fontWeight(.bold).foregroundStyle(.gray)) {
                             if let ingredients = foundProducts?.ingredients {
                                 ForEach(ingredients, id: \.name) { ingredient in
                                     VStack(alignment: .leading) {
@@ -117,9 +119,18 @@ struct ContentView: View {
                         }
                         
                     } else {
-                        Text("Loading...")
+                        VStack(alignment: .center) {
+                            Text("Try to scan something")
+                                .font(.headline)
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal)
+                            
+                        }
                             .padding()
+                        
                     }
+                    
                 }
                 
             }
@@ -132,7 +143,7 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "barcode")
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.green)
                         .foregroundColor(.white)
                         .clipShape(Circle())
                 }
