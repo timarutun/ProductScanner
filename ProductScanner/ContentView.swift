@@ -72,10 +72,10 @@ struct ContentView: View {
                                 
                                 Text("Fat: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentFat ?? 0))%")
                                     .foregroundStyle(.orange)
-
+                                
                                 Text("Protein: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentProtein ?? 0))%")
                                     .foregroundStyle(.blue)
-
+                                
                                 Text("Carbs: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentCarbs ?? 0))%")
                                     .font(.callout)
                                     .foregroundStyle(.purple)
@@ -119,15 +119,7 @@ struct ContentView: View {
                         }
                         
                     } else {
-                        VStack(alignment: .center) {
-                            Text("Try to scan something")
-                                .font(.headline)
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal)
-                            
-                        }
-                            .padding()
+                        WelcomeTextView()
                         
                     }
                     
@@ -137,12 +129,35 @@ struct ContentView: View {
             .ignoresSafeArea()
             .padding()
             .navigationBarTitle("NutriScope")
-            .navigationBarItems(trailing:
-                Button(action: {
+//            .navigationBarItems(trailing:
+//                                    Button(action: {
+//                self.isPresented.toggle()
+//            }) {
+//                Image(systemName: "barcode")
+//                    .padding()
+//                    .background(Color.green)
+//                    .foregroundColor(.white)
+//                    .clipShape(Circle())
+//            }
+//                .sheet(isPresented: $isPresented) {
+//                    BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
+//                }
+//                                
+//            )
+            
+            
+        }
+        .overlay(alignment: .bottom) {
+            
+            HStack {
+                Spacer()
+                Button {
                     self.isPresented.toggle()
-                }) {
-                    Image(systemName: "barcode")
-                        .padding()
+                } label: {
+                    Image(systemName: "barcode.viewfinder")
+                        .resizable() // Разрешить изменение размера изображения
+                        .frame(width: 35, height: 35) // Установить размер изображения
+                        .padding(15)
                         .background(Color.green)
                         .foregroundColor(.white)
                         .clipShape(Circle())
@@ -150,8 +165,8 @@ struct ContentView: View {
                 .sheet(isPresented: $isPresented) {
                     BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
                 }
-                                
-            )
+            }
+            .padding(.horizontal, 25)
         }
     }
 }

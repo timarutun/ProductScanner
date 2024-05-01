@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396815C62BE21256009C8030 /* WelcomeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396815C52BE21256009C8030 /* WelcomeTextView.swift */; };
 		398054582BC2647B005D7A5D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398054572BC2647B005D7A5D /* Launch Screen.storyboard */; };
 		39990FA32BBE5CD4006EC476 /* ProductScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */; };
 		39990FA52BBE5CD4006EC476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FA42BBE5CD4006EC476 /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		396815C52BE21256009C8030 /* WelcomeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTextView.swift; sourceTree = "<group>"; };
 		398054572BC2647B005D7A5D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		39990F9F2BBE5CD4006EC476 /* NutriScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScannerApp.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */,
 				39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */,
 				39990FA42BBE5CD4006EC476 /* ContentView.swift */,
+				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
 				398054572BC2647B005D7A5D /* Launch Screen.storyboard */,
 				39990FB02BBE5D48006EC476 /* Product.swift */,
 				39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */,
@@ -152,6 +155,7 @@
 			files = (
 				39990FA52BBE5CD4006EC476 /* ContentView.swift in Sources */,
 				39990FA32BBE5CD4006EC476 /* ProductScannerApp.swift in Sources */,
+				396815C62BE21256009C8030 /* WelcomeTextView.swift in Sources */,
 				39990FB12BBE5D48006EC476 /* Product.swift in Sources */,
 				39990FB32BBE5D61006EC476 /* ProductSearchManager.swift in Sources */,
 				39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */,
