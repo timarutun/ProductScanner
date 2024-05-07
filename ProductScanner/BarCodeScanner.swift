@@ -66,9 +66,6 @@ struct BarCodeScanner : UIViewControllerRepresentable {
         return vc
     }
     
-    
-  
-    
     class Coordinator : NSObject, AVCaptureMetadataOutputObjectsDelegate {
         let parent: BarCodeScanner
         
@@ -87,7 +84,6 @@ struct BarCodeScanner : UIViewControllerRepresentable {
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 found(code: stringValue)
                 captureSession.stopRunning()
-                parent.presentationMode.wrappedValue.dismiss()
             }
         }
         
@@ -96,13 +92,18 @@ struct BarCodeScanner : UIViewControllerRepresentable {
             parent.upc = code
             
             ProductSearchManager().getProductInfo(upc: code) { product in
-                DispatchQueue.main.async {
-                    self.parent.foundProducts = product
+                if let product = product {
+                    DispatchQueue.main.async {
+                        self.parent.foundProducts = product
+                        self.parent.presentationMode.wrappedValue.dismiss()
+                    }
+                } else {
+                    print("Failed to fetch product info for UPC: \(code)")
                 }
             }
-    
         }
-        
+
     }
 }
+
 

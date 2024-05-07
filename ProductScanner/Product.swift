@@ -13,6 +13,7 @@ struct Products: Decodable {
     let nutrition: Nutrition?
     let image: String?
     let ingredients: [Ingredient]
+    let generatedText: String?
 
 }
 

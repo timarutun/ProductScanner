@@ -9,11 +9,15 @@ import SwiftUI
 import Charts
 // Добавь ТипКит потом
 
+
+
 struct ContentView: View {
     @State private var showingProductPhoto = false
     @State private var isPresented = false
     @State private var upc: String?
     @State private var foundProducts: Products?
+    @State private var isShowingImageDetail = false
+    @State private var showingRecommendations = false
 
 
     
@@ -36,20 +40,62 @@ struct ContentView: View {
                             
                             Spacer()
                             
-                            if let imageURL = URL(string: product.image ?? "") {
-                                AsyncImage(url: imageURL) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .frame(width: 100, height: 100)
-                                } placeholder: {
-                                    Rectangle()
-                                        .foregroundColor(.gray)
-                                        .frame(width: 100, height: 100)
+                            Button(action: {
+                                    self.isShowingImageDetail.toggle()
+                                }) {
+                                    if let imageURL = URL(string: product.image ?? "") {
+                                        AsyncImage(url: imageURL) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .frame(width: 100, height: 100)
+                                        } placeholder: {
+                                            Rectangle()
+                                                .foregroundColor(.gray)
+                                                .frame(width: 100, height: 100)
+                                        }
+                                        .padding()
+                                    }
                                 }
-                                .padding()
+                                .sheet(isPresented: $isShowingImageDetail) {
+                                    if let imageURL = URL(string: product.image ?? "") {
+                                        ImageView(imageURL: imageURL)
+                                    }
+                                }
+                        }
+                        
+                        Button(action: {
+                            self.showingRecommendations.toggle()
+                        }) {
+                            HStack {
+                                Spacer()
+                                
+                                Text("Product Analysis")
+                                
+                                Spacer()
+                                
+                                if showingRecommendations {
+                                    Image(systemName: "chevron.up")
+                                } else {
+                                    Image(systemName: "chevron.down")
+                                }
                             }
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 8)
+                            .background(Color.green)
+                            .cornerRadius(10)
+                        }
+                        .padding(.top, 10)
+                        if showingRecommendations {
+                            Text(foundProducts?.generatedText ?? "")
+                                .font(.body)
+                                .foregroundColor(.black)
+                                .padding(.vertical, 10)
                         }
                         
                         Divider()
@@ -103,6 +149,11 @@ struct ContentView: View {
                                                 .foregroundColor(.gray)
                                                 .font(.subheadline)
                                         }
+                                        if let description = ingredient.description {
+                                            Text("Description: \(description)")
+                                                .foregroundColor(.gray)
+                                                .font(.subheadline)
+                                        }
                                     }
                                     .padding(.vertical, 4)
                                 }
@@ -129,21 +180,6 @@ struct ContentView: View {
             .ignoresSafeArea()
             .padding()
             .navigationBarTitle("NutriScope")
-//            .navigationBarItems(trailing:
-//                                    Button(action: {
-//                self.isPresented.toggle()
-//            }) {
-//                Image(systemName: "barcode")
-//                    .padding()
-//                    .background(Color.green)
-//                    .foregroundColor(.white)
-//                    .clipShape(Circle())
-//            }
-//                .sheet(isPresented: $isPresented) {
-//                    BarCodeScanner(upc: $upc, foundProducts: $foundProducts)
-//                }
-//                                
-//            )
             
             
         }

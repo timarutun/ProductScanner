@@ -14,15 +14,15 @@ struct WelcomeTextView: View {
                 Text("Your ultimate companion for healthier choices.")
             }
             
-            SectionView(systemName: "play.circle.fill", title: "How it works:", color: .green) {
+            SectionView(emoji: "🤔", title: "How it works:", color: .green) {
                 Text("Simply scan the barcode of any product and discover its nutritional breakdown, ingredients, and their safety levels.")
             }
             
-            SectionView(systemName: "heart.circle.fill", title: "Empower yourself:", color: .red) {
+            SectionView(emoji: "🤓", title: "Empower yourself:", color: .red) {
                 Text("Make informed choices about what you consume. Understand the nutritional content and safety of products before you buy them.")
             }
             
-            SectionView(systemName: "shield.fill", title: "Stay safe:", color: .blue) {
+            SectionView(emoji: "😎", title: "Stay safe:", color: .blue) {
                 Text("Our app analyzes ingredient safety levels so you can prioritize products that align with your health and safety standards.")
             }
             
@@ -30,7 +30,6 @@ struct WelcomeTextView: View {
             
             Text("Tap on green button to scan the barcode")
                 .font(.footnote)
-                .padding(.leading)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.primary)
         }
@@ -40,7 +39,7 @@ struct WelcomeTextView: View {
 }
 
 struct SectionView<Content: View>: View {
-    var systemName: String?
+    var emoji: String?
     var title: String
     var color: Color
     var isTitle: Bool = false
@@ -55,7 +54,7 @@ struct SectionView<Content: View>: View {
                     .padding(.leading)
             } else {
                 HStack {
-                    Image(systemName: systemName ?? "")
+                    Text(emoji ?? "")
                         .foregroundColor(color)
                         .font(.title)
                     Text(title)
@@ -72,7 +71,7 @@ struct SectionView<Content: View>: View {
         .padding(.vertical)
         .background(Color(.systemBackground))
         .cornerRadius(10)
-        .padding(.horizontal)
+//        .padding(.horizontal)
     }
 }
 

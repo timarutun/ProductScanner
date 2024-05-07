@@ -1,5 +1,5 @@
 //
-//  ProductSearchManager.swift
+//  Product.swift
 //  ProductScanner
 //
 //  Created by Timur on 4/4/24.
@@ -9,51 +9,43 @@ import Foundation
 
 class ProductSearchManager {
     
-    
-    func getProductInfo(upc: String, completion: @escaping (Products)-> Void) {
-    
-        let sessionConfig = URLSessionConfiguration.default
-
-        // Create session, and optionally set a URLSessionDelegate. */
-        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-
-         //Create the Request:
-         
-                
-                let url = "https://api.spoonacular.com/food/products/upc/\(upc)?apiKey=bf70a096ee6f40f4b4612ff67077d3bf"
-                guard let apiUrl = URL(string: url) else {
-                    return
-                }
-
-
-        // Start a new Task
-        let task = session.dataTask(with: apiUrl, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if (error == nil) {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
-                guard let jsonData = data else {return}
-                do{
-                    let bookData = try JSONDecoder().decode(Products.self, from: jsonData)
-                    completion(bookData)
-                    print(bookData)
-           }catch{
-               print(error)
-           }
+    // Функция для получения информации о продукте по его UPC
+    func getProductInfo(upc: String, completion: @escaping (Products?) -> Void) {
+        // Создаем URL для запроса, используя переданный UPC
+        let url = URL(string: "https://api.spoonacular.com/food/products/upc/\(upc)?apiKey=bf70a096ee6f40f4b4612ff67077d3bf")!
+        
+        // Создаем сессию URLSession
+        let session = URLSession.shared
+        
+        // Создаем задачу для выполнения запроса
+        let task = session.dataTask(with: url) { data, response, error in
+            // Проверяем, есть ли какие-либо ошибки
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil) // В случае ошибки вызываем блок завершения с nil
+                return
             }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription);
+            
+            // Проверяем, получили ли мы какие-либо данные
+            guard let data = data else {
+                print("No data received")
+                completion(nil) // В случае отсутствия данных вызываем блок завершения с nil
+                return
             }
-        })
+            
+            // Пытаемся распарсить полученные данные в объект типа Products
+            do {
+                let products = try JSONDecoder().decode(Products.self, from: data)
+                completion(products) // В случае успешного распарсивания вызываем блок завершения с объектом Products
+            } catch {
+                print("Error decoding JSON: \(error)")
+                completion(nil) // В случае ошибки при распарсивании вызываем блок завершения с nil
+            }
+        }
+        
+        // Начинаем выполнение задачи
         task.resume()
-        session.finishTasksAndInvalidate()
     }
-}
-
-
-protocol URLQueryParameterStringConvertible {
-    var queryParameters: String {get}
 }
 
 
