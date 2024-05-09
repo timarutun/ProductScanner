@@ -50,7 +50,7 @@ struct ProductDetailView: View {
                 Divider()
                 
                 // Nutrients Section
-                Section(header: Text("Nutrients").font(.footnote).foregroundStyle(.gray)) {
+                Section(header: Text("Nutrients").font(.title3).foregroundStyle(.gray)) {
                     if let nutrition = product.nutrition {
                         let breakdown: [DataForChart] = [
                             .init(name: "Fat", value: nutrition.caloricBreakdown?.percentFat ?? 0, color: .orange),
@@ -85,19 +85,21 @@ struct ProductDetailView: View {
                 Divider()
                 
                 // Ingredients Section
-                Section(header: Text("Ingredients").font(.footnote).fontWeight(.bold).foregroundStyle(.gray)) {
+                Section(header: Text("Ingredients").font(.title3).fontWeight(.bold).foregroundStyle(.gray).padding(.bottom)) {
                     if let ingredients = product.ingredients {
                         ForEach(ingredients, id: \.name) { ingredient in
+                            
+                            // MARK: - safety level not showing but giving color to name
                             VStack(alignment: .leading) {
-                                Text(ingredient.name)
-                                    .foregroundColor(.primary)
+                                
                                 if let safetyLevel = ingredient.safetyLevel {
-                                    Text("Safety Level: \(safetyLevel)")
+                                    Text(ingredient.name)
                                         .foregroundColor(safetyLevel == "high" ? .green : .red)
                                         .font(.subheadline)
-                                } else {
-                                    Text("Safety Level: Unknown")
-                                        .foregroundColor(.gray)
+                                }
+                                else {
+                                    Text(ingredient.name)
+                                        .foregroundColor(.green)
                                         .font(.subheadline)
                                 }
                                 if let description = ingredient.description {
@@ -106,6 +108,27 @@ struct ProductDetailView: View {
                                         .font(.subheadline)
                                 }
                             }
+                            Divider()
+                            // MARK: - Safety level showing
+//                            VStack(alignment: .leading) {
+//                                Text(ingredient.name)
+//                                    .foregroundColor(.primary)
+//                                if let safetyLevel = ingredient.safetyLevel {
+//                                    Text("Safety Level: \(safetyLevel)")
+//                                        .foregroundColor(safetyLevel == "high" ? .green : .red)
+//                                        .font(.subheadline)
+//                                }
+//                                else {
+//                                    Text("Safety Level: Unknown")
+//                                        .foregroundColor(.gray)
+//                                        .font(.subheadline)
+//                                }
+//                                if let description = ingredient.description {
+//                                    Text("Description: \(description)")
+//                                        .foregroundColor(.gray)
+//                                        .font(.subheadline)
+//                                }
+//                            }
                             .padding(.vertical, 4)
                         }
                     } else {

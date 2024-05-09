@@ -50,6 +50,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39311D632BEC9DDB00B05CA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39311D642BEC9DEC00B05CA2 /* ProductInfoView */,
+				39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */,
+				39311D612BEC9A0800B05CA2 /* NotFoundView.swift */,
+				3906FCE02BE5F785008A7B7E /* ImageView.swift */,
+				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
+				39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		39311D642BEC9DEC00B05CA2 /* ProductInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				39990FA42BBE5CD4006EC476 /* ProductInfoView.swift */,
+				39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */,
+			);
+			path = ProductInfoView;
+			sourceTree = "<group>";
+		};
 		39990F962BBE5CD4006EC476 = {
 			isa = PBXGroup;
 			children = (
@@ -71,13 +93,7 @@
 			children = (
 				39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */,
 				39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */,
-				39990FA42BBE5CD4006EC476 /* ProductInfoView.swift */,
-				39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */,
-				39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */,
-				39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */,
-				39311D612BEC9A0800B05CA2 /* NotFoundView.swift */,
-				3906FCE02BE5F785008A7B7E /* ImageView.swift */,
-				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
+				39311D632BEC9DDB00B05CA2 /* Views */,
 				398054572BC2647B005D7A5D /* Launch Screen.storyboard */,
 				39990FB02BBE5D48006EC476 /* Product.swift */,
 				39990FA62BBE5CD7006EC476 /* Assets.xcassets */,
