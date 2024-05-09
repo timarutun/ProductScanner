@@ -9,10 +9,9 @@ import Foundation
 
 struct Products: Decodable {
     let title: String?
-    let importantBadges: [String]
     let nutrition: Nutrition?
     let image: String?
-    let ingredients: [Ingredient]
+    let ingredients: [Ingredient]?
     let generatedText: String?
 
 }

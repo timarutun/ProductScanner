@@ -8,28 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		3906FCE12BE5F785008A7B7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3906FCE02BE5F785008A7B7E /* ImageView.swift */; };
+		39311D5E2BEC925200B05CA2 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */; };
+		39311D602BEC92C200B05CA2 /* BarcodeScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */; };
+		39311D622BEC9A0800B05CA2 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D612BEC9A0800B05CA2 /* NotFoundView.swift */; };
 		396815C62BE21256009C8030 /* WelcomeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396815C52BE21256009C8030 /* WelcomeTextView.swift */; };
 		398054582BC2647B005D7A5D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398054572BC2647B005D7A5D /* Launch Screen.storyboard */; };
 		39990FA32BBE5CD4006EC476 /* ProductScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */; };
-		39990FA52BBE5CD4006EC476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FA42BBE5CD4006EC476 /* ContentView.swift */; };
+		39990FA52BBE5CD4006EC476 /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FA42BBE5CD4006EC476 /* ProductInfoView.swift */; };
 		39990FA72BBE5CD7006EC476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39990FA62BBE5CD7006EC476 /* Assets.xcassets */; };
 		39990FAA2BBE5CD7006EC476 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39990FA92BBE5CD7006EC476 /* Preview Assets.xcassets */; };
 		39990FB12BBE5D48006EC476 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB02BBE5D48006EC476 /* Product.swift */; };
-		39990FB32BBE5D61006EC476 /* ProductSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */; };
+		39990FB32BBE5D61006EC476 /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */; };
 		39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3906FCE02BE5F785008A7B7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerButton.swift; sourceTree = "<group>"; };
+		39311D612BEC9A0800B05CA2 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
 		396815C52BE21256009C8030 /* WelcomeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTextView.swift; sourceTree = "<group>"; };
 		398054572BC2647B005D7A5D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		39990F9F2BBE5CD4006EC476 /* NutriScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScannerApp.swift; sourceTree = "<group>"; };
-		39990FA42BBE5CD4006EC476 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		39990FA42BBE5CD4006EC476 /* ProductInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
 		39990FA62BBE5CD7006EC476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39990FA92BBE5CD7006EC476 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39990FB02BBE5D48006EC476 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchManager.swift; sourceTree = "<group>"; };
+		39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
 		39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,12 +71,15 @@
 			children = (
 				39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */,
 				39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */,
-				39990FA42BBE5CD4006EC476 /* ContentView.swift */,
+				39990FA42BBE5CD4006EC476 /* ProductInfoView.swift */,
+				39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */,
+				39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */,
+				39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */,
+				39311D612BEC9A0800B05CA2 /* NotFoundView.swift */,
 				3906FCE02BE5F785008A7B7E /* ImageView.swift */,
 				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
 				398054572BC2647B005D7A5D /* Launch Screen.storyboard */,
 				39990FB02BBE5D48006EC476 /* Product.swift */,
-				39990FB22BBE5D61006EC476 /* ProductSearchManager.swift */,
 				39990FA62BBE5CD7006EC476 /* Assets.xcassets */,
 				39990FA82BBE5CD7006EC476 /* Preview Content */,
 			);
@@ -156,11 +165,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39990FA52BBE5CD4006EC476 /* ContentView.swift in Sources */,
+				39311D602BEC92C200B05CA2 /* BarcodeScannerButton.swift in Sources */,
+				39990FA52BBE5CD4006EC476 /* ProductInfoView.swift in Sources */,
+				39311D5E2BEC925200B05CA2 /* ProductDetailView.swift in Sources */,
+				39311D622BEC9A0800B05CA2 /* NotFoundView.swift in Sources */,
 				39990FA32BBE5CD4006EC476 /* ProductScannerApp.swift in Sources */,
 				396815C62BE21256009C8030 /* WelcomeTextView.swift in Sources */,
 				39990FB12BBE5D48006EC476 /* Product.swift in Sources */,
-				39990FB32BBE5D61006EC476 /* ProductSearchManager.swift in Sources */,
+				39990FB32BBE5D61006EC476 /* ProductInfoViewModel.swift in Sources */,
 				3906FCE12BE5F785008A7B7E /* ImageView.swift in Sources */,
 				39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */,
 			);

@@ -91,7 +91,7 @@ struct BarCodeScanner : UIViewControllerRepresentable {
             print(code)
             parent.upc = code
             
-            ProductSearchManager().getProductInfo(upc: code) { product in
+            ProductInfoViewModel().getProductInfo(upc: code) { product in
                 if let product = product {
                     DispatchQueue.main.async {
                         self.parent.foundProducts = product
