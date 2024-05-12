@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3906FCE12BE5F785008A7B7E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3906FCE02BE5F785008A7B7E /* ImageView.swift */; };
 		39311D5E2BEC925200B05CA2 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */; };
 		39311D602BEC92C200B05CA2 /* BarcodeScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */; };
 		39311D622BEC9A0800B05CA2 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39311D612BEC9A0800B05CA2 /* NotFoundView.swift */; };
@@ -20,10 +19,10 @@
 		39990FB12BBE5D48006EC476 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB02BBE5D48006EC476 /* Product.swift */; };
 		39990FB32BBE5D61006EC476 /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */; };
 		39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */; };
+		39E577AA2BEF2F300071EDAB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E577A92BEF2F300071EDAB /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3906FCE02BE5F785008A7B7E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerButton.swift; sourceTree = "<group>"; };
 		39311D612BEC9A0800B05CA2 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		39990FB02BBE5D48006EC476 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		39990FB22BBE5D61006EC476 /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
 		39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeScanner.swift; sourceTree = "<group>"; };
+		39E577A92BEF2F300071EDAB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +53,13 @@
 		39311D632BEC9DDB00B05CA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				398054572BC2647B005D7A5D /* Launch Screen.storyboard */,
 				39311D642BEC9DEC00B05CA2 /* ProductInfoView */,
-				39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */,
-				39311D612BEC9A0800B05CA2 /* NotFoundView.swift */,
-				3906FCE02BE5F785008A7B7E /* ImageView.swift */,
-				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
+				39E577A72BEF2E3E0071EDAB /* ProductDetailView */,
+				39E577A82BEF2E560071EDAB /* NotFoundView */,
+				39E577AB2BEF2F700071EDAB /* WelcomeTextView */,
 				39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */,
+				39E577A92BEF2F300071EDAB /* ImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,10 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */,
-				39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */,
+				39E577AC2BEF2FB10071EDAB /* BarCodeScanner */,
+				39E577AD2BEF30890071EDAB /* Model */,
 				39311D632BEC9DDB00B05CA2 /* Views */,
-				398054572BC2647B005D7A5D /* Launch Screen.storyboard */,
-				39990FB02BBE5D48006EC476 /* Product.swift */,
 				39990FA62BBE5CD7006EC476 /* Assets.xcassets */,
 				39990FA82BBE5CD7006EC476 /* Preview Content */,
 			);
@@ -108,6 +108,46 @@
 				39990FA92BBE5CD7006EC476 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39E577A72BEF2E3E0071EDAB /* ProductDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */,
+			);
+			path = ProductDetailView;
+			sourceTree = "<group>";
+		};
+		39E577A82BEF2E560071EDAB /* NotFoundView */ = {
+			isa = PBXGroup;
+			children = (
+				39311D612BEC9A0800B05CA2 /* NotFoundView.swift */,
+			);
+			path = NotFoundView;
+			sourceTree = "<group>";
+		};
+		39E577AB2BEF2F700071EDAB /* WelcomeTextView */ = {
+			isa = PBXGroup;
+			children = (
+				396815C52BE21256009C8030 /* WelcomeTextView.swift */,
+			);
+			path = WelcomeTextView;
+			sourceTree = "<group>";
+		};
+		39E577AC2BEF2FB10071EDAB /* BarCodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				39990FB62BBE5DDD006EC476 /* BarCodeScanner.swift */,
+			);
+			path = BarCodeScanner;
+			sourceTree = "<group>";
+		};
+		39E577AD2BEF30890071EDAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39990FB02BBE5D48006EC476 /* Product.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E577AA2BEF2F300071EDAB /* ImageView.swift in Sources */,
 				39311D602BEC92C200B05CA2 /* BarcodeScannerButton.swift in Sources */,
 				39990FA52BBE5CD4006EC476 /* ProductInfoView.swift in Sources */,
 				39311D5E2BEC925200B05CA2 /* ProductDetailView.swift in Sources */,
@@ -189,7 +230,6 @@
 				396815C62BE21256009C8030 /* WelcomeTextView.swift in Sources */,
 				39990FB12BBE5D48006EC476 /* Product.swift in Sources */,
 				39990FB32BBE5D61006EC476 /* ProductInfoViewModel.swift in Sources */,
-				3906FCE12BE5F785008A7B7E /* ImageView.swift in Sources */,
 				39990FB72BBE5DDD006EC476 /* BarCodeScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

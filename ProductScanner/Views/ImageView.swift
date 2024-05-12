@@ -2,11 +2,10 @@
 //  ImageView.swift
 //  ProductScanner
 //
-//  Created by Timur on 5/4/24.
+//  Created by Timur on 5/11/24.
 //
 
 import SwiftUI
-import Foundation
 
 struct ImageView: View {
     let imageURL: URL
@@ -27,3 +26,4 @@ struct ImageView: View {
         .edgesIgnoringSafeArea(.all)
     }
 }
+

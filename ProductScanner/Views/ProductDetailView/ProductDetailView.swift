@@ -142,9 +142,11 @@ struct ProductDetailView: View {
                         }
                     }
                 }
+//                .navigationBarItems(trailing: Image(systemName: "leaf.fill").foregroundColor(.green))
             }
         } else {
             NotFoundView()
+                .padding(.top, 150)
         }
     }
 }

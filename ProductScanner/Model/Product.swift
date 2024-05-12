@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct Products: Decodable {
     let title: String?
     let nutrition: Nutrition?
