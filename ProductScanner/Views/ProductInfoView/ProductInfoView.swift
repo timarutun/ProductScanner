@@ -17,12 +17,13 @@ struct ProductInfoView: View {
                 VStack(alignment: .leading) {
                     if let product = viewModel.foundProducts {
                         ProductDetailView(product: product, showingRecommendations: $viewModel.showingRecommendations)
+                            .padding()
                     } else {
                         WelcomeTextView()
                     }
                 }
             }
-            .padding()
+            
             .navigationBarTitle("NutriScope")
             
         }

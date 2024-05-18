@@ -12,6 +12,9 @@ struct ProductDetailView: View {
     let product: Products
     @Binding var showingRecommendations: Bool
     @State private var isShowingImageDetail = false
+    @State private var showOnlyUnsafe: Bool = false
+    
+    
 
     var body: some View {
         if product.title != nil {
@@ -42,10 +45,13 @@ struct ProductDetailView: View {
                 
                 if showingRecommendations {
                     Text(product.generatedText ?? "")
-                        .font(.body)
-                        .foregroundColor(.black)
+                        .font(.callout)
+                        .padding(.top, 10)
+                    Text(generateRecommendations(nutrition: product.nutrition!))
+                        .font(.headline)
                         .padding(.vertical, 10)
                 }
+
                 
                 Divider()
                 
@@ -75,9 +81,14 @@ struct ProductDetailView: View {
                         Text("Carbs: \(String(format: "%.1f", nutrition.caloricBreakdown?.percentCarbs ?? 0))%")
                             .font(.callout)
                             .foregroundStyle(.purple)
+                        Text(generateRecommendations(nutrition: nutrition))
+                                                .padding(.top, 10)
+                                                .foregroundStyle(.gray)
+                                                .font(.body)
                     } else {
                         Text("Nutrition information not available")
                     }
+                    
                 }
                 .padding(.bottom, 15)
                 .fontWeight(.bold)
@@ -89,7 +100,6 @@ struct ProductDetailView: View {
                     if let ingredients = product.ingredients {
                         ForEach(ingredients, id: \.name) { ingredient in
                             
-                            // MARK: - safety level not showing but giving color to name
                             VStack(alignment: .leading) {
                                 
                                 if let safetyLevel = ingredient.safetyLevel {
@@ -109,26 +119,6 @@ struct ProductDetailView: View {
                                 }
                             }
                             Divider()
-                            // MARK: - Safety level showing
-//                            VStack(alignment: .leading) {
-//                                Text(ingredient.name)
-//                                    .foregroundColor(.primary)
-//                                if let safetyLevel = ingredient.safetyLevel {
-//                                    Text("Safety Level: \(safetyLevel)")
-//                                        .foregroundColor(safetyLevel == "high" ? .green : .red)
-//                                        .font(.subheadline)
-//                                }
-//                                else {
-//                                    Text("Safety Level: Unknown")
-//                                        .foregroundColor(.gray)
-//                                        .font(.subheadline)
-//                                }
-//                                if let description = ingredient.description {
-//                                    Text("Description: \(description)")
-//                                        .foregroundColor(.gray)
-//                                        .font(.subheadline)
-//                                }
-//                            }
                             .padding(.vertical, 4)
                         }
                     } else {
@@ -141,7 +131,9 @@ struct ProductDetailView: View {
                                 .foregroundColor(.gray)
                         }
                     }
+                    
                 }
+                
 //                .navigationBarItems(trailing: Image(systemName: "leaf.fill").foregroundColor(.green))
             }
         } else {
@@ -180,6 +172,7 @@ struct ProductImageView: View {
             }
         }
     }
+    
 }
 
 struct RecommendationButtonView: View {
@@ -208,4 +201,40 @@ struct RecommendationButtonView: View {
         .background(Color.green)
         .cornerRadius(10)
     }
+    
 }
+
+
+
+func generateRecommendations(nutrition: Nutrition) -> String {
+    guard let breakdown = nutrition.caloricBreakdown else {
+        return "Nutrition information not available"
+    }
+    
+    var recommendations = [String]()
+    
+    if breakdown.percentProtein ?? 0 > 30 {
+        recommendations.append("High in protein: Suitable for muscle gain and recovery.")
+    }
+    if breakdown.percentFat ?? 0 > 30 {
+        recommendations.append("High in fat: Suitable for low-carb or keto diets.")
+    }
+    if breakdown.percentCarbs ?? 0 > 50 {
+        recommendations.append("High in carbs: Good for energy replenishment, ideal for athletes.")
+    }
+    
+    if breakdown.percentFat ?? 0 < 20 && breakdown.percentProtein ?? 0 > 20 {
+        recommendations.append("Low in fat and high in protein: Suitable for weight loss and lean muscle gain.")
+    }
+    
+    if breakdown.percentCarbs ?? 0 < 30 && breakdown.percentFat ?? 0 > 20 {
+        recommendations.append("Low in carbs and high in fat: Suitable for ketogenic diets.")
+    }
+    
+    if recommendations.isEmpty {
+        recommendations.append("Balanced nutrient profile: Suitable for a balanced diet.")
+    }
+    
+    return recommendations.joined(separator: "\n")
+}
+
