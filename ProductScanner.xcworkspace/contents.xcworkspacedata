@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/timur/Desktop/Study/Lerning/ProductScanner/ProductScanner/config.plist">
-   </FileRef>
-   <FileRef
       location = "group:ProductScanner.xcodeproj">
    </FileRef>
    <FileRef

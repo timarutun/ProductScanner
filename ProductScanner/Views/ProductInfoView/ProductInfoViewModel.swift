@@ -50,7 +50,7 @@ final class ProductInfoViewModel: ObservableObject {
             
             do {
                 let products = try JSONDecoder().decode(Products.self, from: data)
-                completion(products)
+                completion(products) 
             } catch {
                 print("Ошибка декодирования JSON: \(error)")
                 completion(nil)             }
