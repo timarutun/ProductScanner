@@ -28,6 +28,7 @@
 		39311D5D2BEC925200B05CA2 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		39311D5F2BEC92C200B05CA2 /* BarcodeScannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerButton.swift; sourceTree = "<group>"; };
 		39311D612BEC9A0800B05CA2 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
+		3956D2DC2C1190D60088A3EB /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = config.plist; path = /Users/timur/Desktop/Study/Lerning/ProductScanner/ProductScanner/config.plist; sourceTree = "<absolute>"; };
 		396815C52BE21256009C8030 /* WelcomeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTextView.swift; sourceTree = "<group>"; };
 		398054572BC2647B005D7A5D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		39990F9F2BBE5CD4006EC476 /* NutriScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				39B88D312C0EAE5300B668D7 /* Info.plist */,
+				3956D2DC2C1190D60088A3EB /* config.plist */,
 				39990FA22BBE5CD4006EC476 /* ProductScannerApp.swift */,
 				39E577AC2BEF2FB10071EDAB /* BarCodeScanner */,
 				39E577AD2BEF30890071EDAB /* Model */,

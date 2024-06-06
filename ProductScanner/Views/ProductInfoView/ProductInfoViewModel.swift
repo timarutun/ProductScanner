@@ -13,43 +13,47 @@ final class ProductInfoViewModel: ObservableObject {
     @Published var showingRecommendations = false
     @Published var upc: String?
     @Published var isPresented = false
+    
+
+    private var apiKey: String {
+        guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist") else {
+            fatalError("Couldn't find file 'Config.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let value = plist?.object(forKey: "API_KEY") as? String else {
+            fatalError("Couldn't find key 'API_KEY' in 'Config.plist'.")
+        }
+        return value
+    }
 
     func toggleRecommendations() {
         showingRecommendations.toggle()
     }
     
-    // Getting Product info by UPC
     func getProductInfo(upc: String, completion: @escaping (Products?) -> Void) {
-        // URL with UPC
-        let url = URL(string: "https://api.spoonacular.com/food/products/upc/\(upc)?apiKey=bf70a096ee6f40f4b4612ff67077d3bf")!
+        let url = URL(string: "https://api.spoonacular.com/food/products/upc/\(upc)?apiKey=\(apiKey)")!
         
-        // Creating session URLSession
         let session = URLSession.shared
         
-        // Creating tast for request
         let task = session.dataTask(with: url) { data, response, error in
-            // Checking for errors
             if let error = error {
-                print("Error: \(error)")
+                print("Ошибка: \(error)")
                 completion(nil)
                 return
             }
             
-            // Checking if we have any data
             guard let data = data else {
-                print("No data received")
+                print("Данные не получены")
                 completion(nil)
                 return
             }
             
-            // Trying to parse data to object with type Products
             do {
                 let products = try JSONDecoder().decode(Products.self, from: data)
-                completion(products) // If success - Products
+                completion(products)
             } catch {
-                print("Error decoding JSON: \(error)")
-                completion(nil) // If error - nil
-            }
+                print("Ошибка декодирования JSON: \(error)")
+                completion(nil)             }
         }
         
         task.resume()
